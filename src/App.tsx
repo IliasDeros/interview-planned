@@ -1,22 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Users from './Users';
 
-const API_URL = 'http://localhost:8099'
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <div className="App">
-      <h1>Planned Test</h1>
-      <div>
-        <button type="button">Retrieve Users</button>
-      </div>
-      <div>
-        <h2>Users</h2>
-        min: <input name="minAge" value="0" type="number" />
-        max: <input name="maxAge" value="100" type="number" />
-        <button type="button">Filter by age</button>
-      </div>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Users />
+    </QueryClientProvider>
   );
 }
 
