@@ -59,6 +59,21 @@ h1 {
   margin-left: 50px;
 }
 
+@media all and (max-width: 980px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .flex__filters {
+    align-self: stretch;
+    max-width: none;
+  }
+
+  .flex__data {
+    margin-left: 0;
+  }
+}
+
 .sort-arrows {
   margin-left: 8px;
 }
