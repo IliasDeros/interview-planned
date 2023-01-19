@@ -1,44 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import useFilterReducer, { Action } from './useFilterReducer'
 
 // Design had 431 / 1230 as filter
 const minAgeValue = 0
 const maxAgeValue = 9999
 
 type UserFiltersProps = {
-  filter: { minAge: number, maxAge: number },
-  setFilter: (filter: { minAge: number, maxAge: number }) => void
+  dispatchFilter: React.Dispatch<Action>
+  filter: { minAge: number, maxAge: number }
 }
 
 function UserFilters({
+  dispatchFilter,
   filter,
-  setFilter
 }: UserFiltersProps) {
-  const [minAge, setMinAge] = useState(filter.minAge)
-  const [maxAge, setMaxAge] = useState(filter.maxAge)
-  const retrieveUsers = () => setFilter({ minAge, maxAge })
-
-  const updateMin = (minAge = 0) => {
-    const min = Math.min(Math.max(minAge, minAgeValue), maxAgeValue)
-
-    if (min > maxAge) {
-      setMaxAge(min)
-    }
-    setMinAge(min)
-  }
-
-  const updateMax = (maxAge = 100) => {
-    const max = Math.max(Math.min(maxAge, maxAgeValue), minAgeValue)
-    if (max < minAge) {
-      setMinAge(max)
-    }
-    setMaxAge(max)
+  const { dispatchFilter: dispatchValues, filter: values } = useFilterReducer(filter)
+  const retrieveUsers = () => {
+    dispatchFilter({ type: 'SET_MIN_AGE', value: values.minAge })
+    dispatchFilter({ type: 'SET_MAX_AGE', value: values.maxAge })
   }
 
   // Updating filter externally will update the state
   useEffect(() => {
-    setMinAge(filter.minAge)
-    setMaxAge(filter.maxAge)
+    dispatchValues({ type: 'SET_MIN_AGE', value: filter.minAge })
+    dispatchValues({ type: 'SET_MAX_AGE', value: filter.maxAge })
   }, [filter.minAge, filter.maxAge])
+
+  const updateMin = (value: number) => dispatchValues({ type: 'SET_MIN_AGE', value })
+  const updateMax = (value: number) => dispatchValues({ type: 'SET_MAX_AGE', value })
 
   return (
     <>
@@ -46,7 +35,7 @@ function UserFilters({
       <div className="input-container__prefix">Min</div>
         <input
           type="number"
-          value={minAge}
+          value={values.minAge}
           onChange={(e) => updateMin(parseInt(e.target.value || "0"))}
           min="0"
           max="130"
@@ -56,7 +45,7 @@ function UserFilters({
         <div className="input-container__prefix">Max</div>
         <input
           type="number"
-          value={maxAge}
+          value={values.maxAge}
           onChange={(e) => updateMax(parseInt(e.target.value || "0"))}
           min="0"
           max="130"
