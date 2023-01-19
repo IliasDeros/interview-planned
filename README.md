@@ -1,4 +1,4 @@
-# Planned Interview Test
+# Planned Interview Test [![Deploy to Vercel](https://github.com/IliasDeros/interview-planned/actions/workflows/deploy.yml/badge.svg)](https://github.com/IliasDeros/interview-planned/actions/workflows/deploy.yml)
 
 **Bonus**
 - [x] Enable deployment (Frontend connects to http://localhost:8099)
