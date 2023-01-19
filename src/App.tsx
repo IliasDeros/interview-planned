@@ -1,6 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Users from './Users';
+import Users from './users/Users';
 
 const queryClient = new QueryClient({
   defaultOptions: {

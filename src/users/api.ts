@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8099'
+import { API_URL } from "../constants"
 
 export type User = {
   id: number,
