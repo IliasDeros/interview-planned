@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:8099'
 
-type User = {
+export type User = {
   id: number,
   country: string,
   age: number,

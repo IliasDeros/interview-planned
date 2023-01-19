@@ -1,0 +1,75 @@
+/**
+ * Contents
+ *
+ * Overrides........Overrides https://github.com/picocss/pico/blob/master/css/themes/default.css
+ * Layout...........
+ * Inputs...........
+ */
+
+
+
+ /**************************************
+  * # Overrides
+  **************************************/
+:root:not([data-theme=light]) {
+  --primary: #52a27e;
+  --primary-hover: #4a8f6f;
+  --border-radius: 0.5rem;
+  --spacing: 1.25rem;
+  background: #f4f6f8;
+}
+
+button,
+[role=button] {
+  border-radius: 100px;
+}
+
+input[type=checkbox] {
+  border-radius: 0.25rem;
+}
+
+
+
+/**************************************
+  * # Layout
+  **************************************/
+.flex {
+  display: flex;
+}
+
+.flex__filters {
+  max-width: 360px;
+  align-self: flex-start;
+}
+
+.flex__data {
+  flex: 1;
+  margin-left: 50px;
+}
+
+.sort-arrows {
+  margin-left: 8px;
+}
+
+
+
+/**************************************
+  * # Inputs
+  **************************************/
+.input-container {
+  position: relative;
+}
+
+.input-container .input-container__prefix {
+  position: absolute;
+  left: 20px;
+}
+
+.input-container--filter input {
+  padding-left: 72px;
+}
+
+.input-container--filter .input-container__prefix {
+  top: 16px;
+  color: var(--muted-color);
+}
