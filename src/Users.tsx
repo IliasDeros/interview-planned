@@ -1,11 +1,9 @@
 import React from 'react'
 import { useQuery } from 'react-query';
-import { queryAdults } from './api/users';
+import { queryUsers } from './api/users';
 
 function Users() {
-  const { data } = useQuery('adults', queryAdults);
-
-  const adults = data?.data;
+  const { data } = useQuery('allUsers', queryUsers);
 
   return (
     <>
@@ -15,7 +13,7 @@ function Users() {
       </div>
 
       <div>
-        <h2>Users ({adults?.length})</h2>
+        <h2>Users ({data?.length})</h2>
         min: <input name="minAge" value="0" type="number" />
         max: <input name="maxAge" value="100" type="number" />
       </div>
