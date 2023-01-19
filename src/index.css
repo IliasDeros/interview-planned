@@ -16,7 +16,12 @@
   --primary-hover: #4a8f6f;
   --border-radius: 0.5rem;
   --spacing: 1.25rem;
+  --nav-element-spacing-vertical: 0;
   background: #f4f6f8;
+}
+
+nav {
+  background: #fff;
 }
 
 button,
@@ -26,6 +31,13 @@ button,
 
 input[type=checkbox] {
   border-radius: 0.25rem;
+}
+input:not([type=checkbox],[type=radio],[type=range],[type=file])[type=search] {
+  border-radius: var(--border-radius);
+}
+
+h1 {
+  --typography-spacing-vertical: 0;
 }
 
 
@@ -49,6 +61,10 @@ input[type=checkbox] {
 
 .sort-arrows {
   margin-left: 8px;
+}
+
+.top-spacer {
+  margin-top: 30px;
 }
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Navbar from './Navbar';
 import Users from './users/Users';
 
 const queryClient = new QueryClient({
@@ -14,6 +15,8 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <Navbar />
+      <div className="top-spacer"></div>
       <Users />
     </QueryClientProvider>
   );
