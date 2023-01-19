@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const maxAgeValue = 130
+// Design had 431 / 1230 as filter
 const minAgeValue = 0
+const maxAgeValue = 9999
 
 type UserFiltersProps = {
   filter: { minAge: number, maxAge: number },
@@ -32,6 +33,12 @@ function UserFilters({
     }
     setMaxAge(max)
   }
+
+  // Updating filter externally will update the state
+  useEffect(() => {
+    setMinAge(filter.minAge)
+    setMaxAge(filter.maxAge)
+  }, [filter.minAge, filter.maxAge])
 
   return (
     <>

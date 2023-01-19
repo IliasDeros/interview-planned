@@ -4,10 +4,13 @@ import SortArrows from "../assets/sort-arrows.svg"
 
 type UsersTableProps = {
   isLoading: boolean,
+  resetFilters?: () => void,
   users: User[]
 }
 
-function UsersTable({ isLoading, users }: UsersTableProps) {
+function UsersTable({ isLoading, resetFilters, users }: UsersTableProps) {
+  const isEmpty = users.length === 0 && !isLoading
+
   return (
     <table>
       <thead>
@@ -28,6 +31,13 @@ function UsersTable({ isLoading, users }: UsersTableProps) {
           <tr>
             <td></td>
             <td aria-busy="true" colSpan={2}>Fetching Users...</td>
+          </tr>
+        )}
+
+        {isEmpty && (
+          <tr>
+            <td></td>
+            <td colSpan={2}>No users found. {resetFilters && <a href="#" onClick={resetFilters}>Reset Filters</a>}</td>
           </tr>
         )}
 
