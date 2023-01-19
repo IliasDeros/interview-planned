@@ -62,7 +62,7 @@ function UserFilters({
           max="130"
         />
       </div>
-      <a href="#" role="button" onClick={retrieveUsers}>Retrieve Users</a>
+      <a href="#retrieve" role="button" onClick={retrieveUsers}>Retrieve Users</a>
     </>
   )
 }

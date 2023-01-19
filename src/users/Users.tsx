@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useQuery } from 'react-query';
-import { queryUsers, User } from './api';
+import { queryUsers } from './api';
 import UserFilters from './UserFilters';
 import { filterUsers, orderUsers } from './utils';
 import UsersTable from './UsersTable';

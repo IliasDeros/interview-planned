@@ -1,5 +1,9 @@
 # Planned Interview Test
 
+**Bonus**
+- [x] Enable deployment
+- [x] Show table states: loading & reset age filters
+
 For this test, you will need to retrieve users from 3 different api endpoints. You will then need to order those users by name (firstName + lastName) *ascending* and if multiple people have the same name, order them by age *descending*.
 
 So you would have a list like this one:

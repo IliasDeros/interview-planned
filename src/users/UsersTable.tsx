@@ -37,7 +37,7 @@ function UsersTable({ isLoading, resetFilters, users }: UsersTableProps) {
         {isEmpty && (
           <tr>
             <td></td>
-            <td colSpan={2}>No users found. {resetFilters && <a href="#" onClick={resetFilters}>Reset Filters</a>}</td>
+            <td colSpan={2}>No users found. {resetFilters && <a href="#reset" onClick={resetFilters}>Reset Filters</a>}</td>
           </tr>
         )}
 
