@@ -9,7 +9,8 @@
   "scripts": {
     "start": "npm-run-all --parallel start:client start:server",
     "start:client": "react-scripts start",
-    "start:server": "node server/server.js"
+    "start:server": "node server/server.js",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "faker": "^4.1.0",
