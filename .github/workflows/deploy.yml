@@ -22,4 +22,4 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           github-comment: false                     # Do not leave a comment on PRs
-          vercel-args: "deploy dist --name ${{ secrets.VERCEL_APP_NAME }} --confirm -A ./vercel.json --prod"
+          vercel-args: "deploy build --name ${{ secrets.VERCEL_APP_NAME }} --confirm -A ./vercel.json --prod"
